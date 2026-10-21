@@ -41,10 +41,11 @@ export function RobertSpline({
             transition={{ duration: 0.5, type: "spring" }}
             className="absolute top-24 right-8 z-20 max-w-[200px] pointer-events-none"
           >
-            <div className="bg-white dark:bg-gray-800 text-gray-900 dark:text-white px-4 py-3 rounded-2xl rounded-tr-none shadow-xl border border-black/5 dark:border-white/10 backdrop-blur-md text-sm font-medium leading-relaxed">
+            {/* ✅ Always dark bubble with white text — visible on light theme */}
+            <div className="bg-gray-800 text-white px-4 py-3 rounded-2xl rounded-tr-none shadow-xl border border-white/10 backdrop-blur-md text-sm font-medium leading-relaxed">
               Welcome to my digital workspace. Feel free to drag and interact with me!
               {/* Little triangle pointing to the robot */}
-              <div className="absolute top-0 -right-2 w-0 h-0 border-t-[10px] border-t-white dark:border-t-gray-800 border-r-[10px] border-r-transparent"></div>
+              <div className="absolute top-0 -right-2 w-0 h-0 border-t-[10px] border-t-gray-800 border-r-[10px] border-r-transparent"></div>
             </div>
           </motion.div>
         )}

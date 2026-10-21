@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Sun, Moon, Mail, MapPin } from 'lucide-react';
+import { Menu, X, Mail, MapPin } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { personalInfo } from '../data/portfolioData';
 import { GlareCard } from './ui/glare-card';
@@ -7,8 +7,12 @@ import { GlareCard } from './ui/glare-card';
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [theme, setTheme] = useState('dark');
   const [isPhotoModalOpen, setIsPhotoModalOpen] = useState(false);
+
+  // Detect system color scheme (reactive to OS changes)
+  const [isLight, setIsLight] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: light)').matches
+  );
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -16,11 +20,12 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleTheme = () => {
-    const newTheme = theme === 'dark' ? 'light' : 'dark';
-    setTheme(newTheme);
-    document.documentElement.setAttribute('data-theme', newTheme);
-  };
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-color-scheme: light)');
+    const handler = (e) => setIsLight(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
 
   const navLinks = [
     { name: 'About', href: '#about' },
@@ -44,40 +49,40 @@ export default function Navbar() {
             <img 
               src="https://cdn.inspira-ui.com/logo-dark.svg" 
               alt="Logo" 
-              className={`w-8 h-8 object-contain transition-all duration-300 ${theme === 'light' ? 'invert' : ''}`} 
+              className={`w-8 h-8 object-contain transition-all duration-300 ${isLight ? 'invert' : ''}`} 
             />
           </div>
-          <a href="#" className={`ml-3 text-xl font-bold tracking-tighter hidden sm:block ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
+          <a href="#" className={`ml-3 text-xl font-bold tracking-tighter hidden sm:block ${isLight ? 'text-gray-900' : 'text-white'}`}>
             {personalInfo.name.split(' ')[0]}<span className="text-primary">.</span>
           </a>
           
           {/* Hover Card */}
           <div className="absolute top-full left-0 mt-4 w-[320px] opacity-0 translate-y-4 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 z-50">
-            <GlareCard className={`${theme === 'light' ? 'bg-white border-gray-200 shadow-xl' : 'bg-neutral-950 border-white/10 shadow-2xl'} p-6 flex flex-col items-start w-[320px] h-auto aspect-auto rounded-2xl`}>
+            <GlareCard className={`${isLight ? 'bg-white border-gray-200 shadow-xl' : 'bg-neutral-950 border-white/10 shadow-2xl'} p-6 flex flex-col items-start w-[320px] h-auto aspect-auto rounded-2xl`}>
               <div className="flex items-center gap-4 mb-4">
-                <div className={`w-14 h-14 rounded-full overflow-hidden border shrink-0 ${theme === 'light' ? 'border-gray-200' : 'border-white/20'}`}>
+                <div className={`w-14 h-14 rounded-full overflow-hidden border shrink-0 ${isLight ? 'border-gray-200' : 'border-white/20'}`}>
                   <img src="/trail-4.jpg" alt="Profile" className="w-full h-full object-cover" />
                 </div>
                 <div>
-                  <h3 className={`font-bold ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>{personalInfo.name}</h3>
+                  <h3 className={`font-bold ${isLight ? 'text-gray-900' : 'text-white'}`}>{personalInfo.name}</h3>
                   <p className="text-primary text-xs font-medium">{personalInfo.title}</p>
                 </div>
               </div>
-              <p className={`text-sm mb-4 leading-relaxed ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'}`}>
+              <p className={`text-sm mb-4 leading-relaxed ${isLight ? 'text-gray-600' : 'text-gray-400'}`}>
                 Passionate about building scalable backends, full-stack web applications, and AI integrations.
               </p>
-              <div className={`flex items-center gap-2 text-xs mb-4 ${theme === 'light' ? 'text-gray-500' : 'text-gray-400'}`}>
+              <div className={`flex items-center gap-2 text-xs mb-4 ${isLight ? 'text-gray-500' : 'text-gray-400'}`}>
                 <MapPin size={14} />
                 <span>{personalInfo.location}</span>
               </div>
-              <div className={`flex items-center gap-3 border-t pt-4 w-full ${theme === 'light' ? 'border-gray-100' : 'border-white/10'}`}>
-                <a href={personalInfo.github} target="_blank" rel="noreferrer" className={`p-2 rounded-lg transition-colors ${theme === 'light' ? 'bg-black/5 hover:bg-black/10 text-black' : 'bg-white/5 hover:bg-white/10 text-white'}`}>
+              <div className={`flex items-center gap-3 border-t pt-4 w-full ${isLight ? 'border-gray-100' : 'border-white/10'}`}>
+                <a href={personalInfo.github} target="_blank" rel="noreferrer" className={`p-2 rounded-lg transition-colors ${isLight ? 'bg-black/5 hover:bg-black/10 text-black' : 'bg-white/5 hover:bg-white/10 text-white'}`}>
                   <FaGithub size={16} />
                 </a>
-                <a href={personalInfo.linkedin} target="_blank" rel="noreferrer" className={`p-2 rounded-lg transition-colors ${theme === 'light' ? 'bg-black/5 hover:bg-black/10 text-black' : 'bg-white/5 hover:bg-white/10 text-white'}`}>
+                <a href={personalInfo.linkedin} target="_blank" rel="noreferrer" className={`p-2 rounded-lg transition-colors ${isLight ? 'bg-black/5 hover:bg-black/10 text-black' : 'bg-white/5 hover:bg-white/10 text-white'}`}>
                   <FaLinkedin size={16} />
                 </a>
-                <a href={`mailto:${personalInfo.email}`} className={`p-2 rounded-lg transition-colors ${theme === 'light' ? 'bg-black/5 hover:bg-black/10 text-black' : 'bg-white/5 hover:bg-white/10 text-white'}`}>
+                <a href={`mailto:${personalInfo.email}`} className={`p-2 rounded-lg transition-colors ${isLight ? 'bg-black/5 hover:bg-black/10 text-black' : 'bg-white/5 hover:bg-white/10 text-white'}`}>
                   <Mail size={16} />
                 </a>
               </div>
@@ -92,13 +97,6 @@ export default function Navbar() {
               {link.name}
             </a>
           ))}
-          <button 
-            onClick={toggleTheme}
-            className="p-2 bg-white/5 border border-white/10 rounded-full text-gray-300 hover:text-white transition-colors"
-            title="Toggle Theme"
-          >
-            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
           <a href="/resume.html" target="_blank" className="px-4 py-2 text-sm font-medium bg-primary/10 text-primary rounded-lg border border-primary/20 hover:bg-primary hover:text-[#fff] transition-all">
             Resume
           </a>
@@ -106,12 +104,6 @@ export default function Navbar() {
 
         {/* Mobile Nav Toggle */}
         <div className="md:hidden flex items-center gap-4">
-          <button 
-            onClick={toggleTheme}
-            className="p-2 bg-white/5 border border-white/10 rounded-full text-gray-300 hover:text-white transition-colors"
-          >
-            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
           <button className="text-gray-300 hover:text-white" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>

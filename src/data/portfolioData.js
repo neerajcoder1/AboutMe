@@ -54,42 +54,87 @@ export const techStack = [
 
 export const projects = [
   {
-    id: "ai-job-command-centre",
-    title: "AI Job Application Command Centre",
-    category: "Agentic AI Platform",
+    id: "sarvam-swarm",
+    title: "Sarvam Swarm",
+    category: "Multi-Agent AI System",
     thumbnail: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800",
-    technologies: ["AI Agents", "Lemma Workflows", "Lemma Tables", "HTML", "CSS", "JavaScript"],
-    description: "Agentic AI Platform for Job Search and Application Management.",
-    problem: "Managing job applications, tracking statuses, and tailoring resumes to job descriptions is a repetitive and time-consuming process.",
-    solution: "Designed an agentic platform for job-description parsing, resume matching, skill-gap analysis, and application tracking.",
-    role: "Structured specialized agents for job parsing, resume analysis, cover-letter generation, application tracking, and interview preparation. Built an interactive dashboard.",
-    architecture: "AI Agents ↔ Lemma Workflows ↔ Interactive Dashboard",
+    technologies: ["Python", "FastAPI", "Swarm Agents", "AI", "REST APIs"],
+    description: "A multi-agent AI swarm system built for intelligent task orchestration and automation.",
+    problem: "Complex tasks require coordination between multiple AI agents with different specializations.",
+    solution: "Built a swarm-based multi-agent system where specialized agents collaborate to solve complex tasks efficiently.",
+    role: "Designed the agent orchestration layer, built the FastAPI backend, and implemented inter-agent communication protocols.",
+    architecture: "Swarm Controller <-> Specialized Agents <-> FastAPI Backend",
     engineering: {
-      agents: "Structured specialized agents for parsing, cover-letter generation, and interview preparation.",
-      dashboard: "Built an interactive dashboard with structured workflows and tables.",
-      analysis: "Implemented skill-gap analysis and resume matching."
+      orchestration: "Implemented a swarm controller to route and coordinate tasks across agents.",
+      backend: "Built with FastAPI for async, high-performance API handling.",
+      agents: "Designed specialized agents for distinct task domains with fallback strategies."
     },
-    github: "https://github.com/neerajcoder1",
+    isDemo: true,
+    github: "https://github.com/neerajcoder1/sarvam-swarm",
+    link: "https://github.com/neerajcoder1/sarvam-swarm",
     featured: true
   },
   {
-    id: "visionx-swarmassist",
-    title: "AI Voice Agents / SwarmAssist",
-    category: "Multi-Agent Productivity & Wellness",
+    id: "netrayan",
+    title: "Netrayan",
+    category: "AI Vision & Analytics",
     thumbnail: "https://images.unsplash.com/photo-1599839619722-39751411ea63?auto=format&fit=crop&q=80&w=800",
-    technologies: ["React", "FastAPI", "Uvicorn", "Asyncio", "Ollama", "Llama 3"],
-    description: "Multi-Agent Productivity & Wellness Swarm Engine.",
-    problem: "Single LLM calls are insufficient for complex, multi-step problem solving and interactive voice tasks.",
-    solution: "Designed a sequential multi-agent architecture for task planning, personalization, execution, recommendations, and voice interaction.",
-    role: "Built the FastAPI backend and integrated a local Llama 3 inference engine through Ollama.",
-    architecture: "Frontend (React) ↔ Backend Controller (FastAPI) ↔ Swarm Agents (Llama 3)",
+    technologies: ["Python", "YOLOv8", "MediaPipe", "OpenCV", "FastAPI"],
+    description: "An AI-powered vision and analytics platform for real-time object detection and tracking.",
+    problem: "Real-time visual data processing and intelligent object recognition remain challenging without specialized infrastructure.",
+    solution: "Developed a computer vision platform using YOLOv8 and MediaPipe for real-time detection, tracking, and analytics.",
+    role: "Built the vision pipeline, integrated YOLOv8 models, and developed the backend API for streaming analytics.",
+    architecture: "Camera/Video Input <-> Vision Pipeline (YOLOv8 + MediaPipe) <-> Analytics API",
     engineering: {
-      architecture: "Sequential multi-agent architecture for task planning.",
-      inference: "Integrated local Llama 3 inference engine through Ollama.",
-      processing: "Implemented an asynchronous timeout guard with structured fallback JSON to keep the frontend responsive."
+      detection: "Integrated YOLOv8 for real-time object detection with high accuracy.",
+      tracking: "Used MediaPipe for pose and landmark tracking.",
+      api: "Exposed analytics and detection results via FastAPI endpoints."
     },
-    github: "https://github.com/neerajcoder1/Ai-Voice-Agents",
-    link: "https://ai-voice-agents-six.vercel.app/",
+    isDemo: true,
+    github: "https://github.com/neerajcoder1/netrayan",
+    link: "https://github.com/neerajcoder1/netrayan",
+    featured: true
+  },
+  {
+    id: "ayusetu-ai",
+    title: "AyuSetu AI",
+    category: "AI Healthcare Platform",
+    thumbnail: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800",
+    technologies: ["Python", "FastAPI", "React", "AI/ML", "Healthcare APIs"],
+    description: "An AI-powered healthcare bridge platform connecting patients with intelligent symptom analysis and doctor recommendations.",
+    problem: "Patients in rural and semi-urban areas lack easy access to timely medical guidance and doctor recommendations.",
+    solution: "Built an AI-assisted platform that analyzes symptoms, suggests possible conditions, and recommends appropriate medical specialists.",
+    role: "Developed the AI symptom-analysis engine, REST API backend, and integrated the frontend dashboard.",
+    architecture: "Frontend (React) <-> FastAPI Backend <-> AI Symptom Engine <-> Doctor DB",
+    engineering: {
+      ai: "Built symptom classification using ML models trained on medical datasets.",
+      backend: "FastAPI with structured endpoints for patient intake, analysis, and recommendations.",
+      frontend: "React dashboard for patient-facing interaction and doctor listings."
+    },
+    isDemo: true,
+    github: "https://github.com/neerajcoder1/AyuSetu-AI",
+    link: "https://github.com/neerajcoder1/AyuSetu-AI",
+    featured: true
+  },
+  {
+    id: "repopulse-lite",
+    title: "RepoPulse Lite",
+    category: "Developer Tools",
+    thumbnail: "https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&q=80&w=800",
+    technologies: ["React", "GitHub API", "Node.js", "REST APIs", "Data Visualization"],
+    description: "A lightweight GitHub repository analytics dashboard for tracking repo health and activity metrics.",
+    problem: "Developers lack a quick, clean way to visualize repository activity, contributor trends, and project health at a glance.",
+    solution: "Built a lightweight analytics tool that fetches GitHub data and presents it in an intuitive, visual dashboard.",
+    role: "Developed the GitHub API integration, data processing layer, and the React analytics dashboard.",
+    architecture: "React Dashboard <-> Node.js API Layer <-> GitHub REST API",
+    engineering: {
+      integration: "Consumed GitHub REST API for repo stats, commits, issues, and contributor data.",
+      visualization: "Built interactive charts and metrics cards for at-a-glance repo health.",
+      performance: "Implemented caching to reduce API rate-limit hits."
+    },
+    isDemo: true,
+    github: "https://github.com/neerajcoder1/repopulse-lite",
+    link: "https://github.com/neerajcoder1/repopulse-lite",
     featured: true
   },
   {
@@ -100,14 +145,15 @@ export const projects = [
     technologies: ["Python", "Node.js", "OWASP", "Security Testing", "Docker"],
     description: "A vulnerable e-commerce platform designed for practicing penetration testing and identifying security flaws.",
     problem: "Security professionals need safe, legal environments to practice identifying and exploiting vulnerabilities.",
-    solution: "Developed an intentional intentionally vulnerable web application incorporating OWASP Top 10 vulnerabilities.",
+    solution: "Developed an intentionally vulnerable web application incorporating OWASP Top 10 vulnerabilities for hands-on learning.",
     role: "Architected the backend and implemented various security misconfigurations for educational purposes.",
-    architecture: "Client ↔ Vulnerable API ↔ Database",
+    architecture: "Client <-> Vulnerable API <-> Database",
     engineering: {
       vulnerabilities: "Implemented SQLi, XSS, CSRF, and broken authentication scenarios.",
       testing: "Created comprehensive lab guides for discovering and patching the vulnerabilities.",
       deployment: "Containerized with Docker for easy, isolated local deployment."
     },
+    isDemo: true,
     github: "https://github.com/neerajcoder1/SecureShop-Cybersecurity-Lab",
     link: "https://secure-shop-cybersecurity-lab.vercel.app/",
     featured: true
@@ -122,54 +168,15 @@ export const projects = [
     problem: "Users are frequently targeted by sophisticated phishing campaigns via email and SMS.",
     solution: "A platform that analyzes URLs and content to detect phishing attempts and provides awareness training.",
     role: "Built the backend detection engine and user-facing awareness dashboard.",
-    architecture: "Frontend ↔ API Engine ↔ Threat Intelligence APIs",
+    architecture: "Frontend <-> API Engine <-> Threat Intelligence APIs",
     engineering: {
       detection: "Implemented URL analysis using machine learning heuristics.",
       integrations: "Connected to external threat intelligence feeds.",
       ui: "Developed an interactive dashboard for users to simulate and learn about attacks."
     },
+    isDemo: true,
     github: "https://github.com/neerajcoder1/phishshield-cybersecurity-awareness",
     link: "https://phishshield-cybersecurity-awareness.vercel.app/",
-    featured: true
-  },
-  {
-    id: "redbull-experience",
-    title: "RedBull Experience",
-    category: "Frontend UI/UX",
-    thumbnail: "https://images.unsplash.com/photo-1534142475651-404543b593eb?auto=format&fit=crop&q=80&w=800",
-    technologies: ["React", "Tailwind CSS", "Framer Motion", "UI/UX Design"],
-    description: "A high-performance, visually engaging frontend landing page inspired by RedBull.",
-    problem: "Modern brands require immersive web experiences that capture user attention immediately.",
-    solution: "Built a highly interactive promotional landing page with advanced scroll animations and 3D effects.",
-    role: "Led the frontend development, focusing entirely on visual polish, performance, and accessibility.",
-    architecture: "React Components ↔ Framer Motion ↔ Tailwind CSS",
-    engineering: {
-      animations: "Implemented complex scroll-linked animations and parallax effects.",
-      performance: "Optimized image loading and component rendering for 60fps scrolling.",
-      responsive: "Ensured pixel-perfect design across all device viewports."
-    },
-    github: "https://github.com/neerajcoder1/redbull-experience",
-    link: "https://redbull-experience-blush.vercel.app/",
-    featured: true
-  },
-  {
-    id: "employee-leave-manager",
-    title: "Employee Leave Manager",
-    category: "Full-Stack Web Application",
-    thumbnail: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
-    technologies: ["React", "Vite", "Node.js", "Express", "PostgreSQL"],
-    description: "An employee leave-management application handling employee workflows and leave operations.",
-    problem: "Organizations struggle to manage employee leave requests, balances, and approvals efficiently without dedicated tools.",
-    solution: "A complete full-stack web application with role-based access to request, review, and manage leave operations seamlessly.",
-    role: "Developed the entire full-stack application, implementing the React frontend, designing the REST API with Node/Express, and structuring the PostgreSQL database.",
-    architecture: "React (Frontend) → REST API (Node/Express) → PostgreSQL (Database)",
-    engineering: {
-      apis: "RESTful endpoints for leave CRUD operations and user management.",
-      database: "PostgreSQL with normalized schemas for users, roles, and leave requests.",
-      authentication: "JWT-based authentication with role-based access control (RBAC)."
-    },
-    github: "https://github.com/neerajcoder1/employee-leave-manager",
-    link: "https://employee-leave-manager-one.vercel.app/",
     featured: true
   }
 ];

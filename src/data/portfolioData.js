@@ -120,7 +120,7 @@ export const projects = [
     id: "repopulse-lite",
     title: "RepoPulse Lite",
     category: "Developer Tools",
-    thumbnail: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+    thumbnail: "/repopulse-preview.png",
     technologies: ["React", "GitHub API", "Node.js", "REST APIs", "Data Visualization"],
     description: "A lightweight GitHub repository analytics dashboard for tracking repo health and activity metrics.",
     problem: "Developers lack a quick, clean way to visualize repository activity, contributor trends, and project health at a glance.",

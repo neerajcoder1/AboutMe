@@ -13,6 +13,18 @@ function ProjectModal({ project, onClose }) {
           <X size={20} />
         </button>
 
+        {/* Modal Header Thumbnail */}
+        {project.thumbnail && (
+          <div className="relative w-full h-48 sm:h-64 overflow-hidden rounded-t-2xl border-b border-white/10">
+            <img 
+              src={project.thumbnail} 
+              alt={project.title} 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
+          </div>
+        )}
+
         <div className="p-6 sm:p-10">
           {/* Category badge */}
           <div className="flex items-center gap-3 mb-4">
@@ -128,14 +140,33 @@ export default function FeaturedProjects() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 relative z-10">
           {projects.filter(p => p.featured).map((project) => (
             <div key={project.id} className="group glass-panel rounded-2xl overflow-hidden flex flex-col h-full hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20">
-              <div className="p-8 flex flex-col flex-grow">
-
-                {/* Top row: category + icon links */}
-                <div className="flex justify-between items-start mb-4">
-                  <span className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full border border-primary/20">
+              
+              {/* Project Card Image */}
+              {project.thumbnail && (
+                <div className="relative w-full h-52 overflow-hidden border-b border-white/10 bg-neutral-900">
+                  <img
+                    src={project.thumbnail}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-black/20" />
+                  <span className="absolute top-4 left-4 px-3 py-1 text-xs font-semibold bg-background/80 backdrop-blur-md text-primary rounded-full border border-primary/30 shadow-md">
                     {project.category}
                   </span>
-                  <div className="flex gap-3">
+                </div>
+              )}
+
+              <div className="p-8 flex flex-col flex-grow">
+                {/* Header row: if no thumbnail or supplementary badges */}
+                <div className="flex justify-between items-start mb-3">
+                  {project.isDemo && (
+                    <div className="flex items-center gap-1.5 text-xs text-amber-400 font-medium">
+                      <AlertTriangle size={12} />
+                      Demo / Prototype
+                    </div>
+                  )}
+                  <div className="flex gap-3 ml-auto">
                     {project.github && (
                       <a href={project.github} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors" title="View on GitHub">
                         <FaGithub size={20} />
@@ -149,14 +180,6 @@ export default function FeaturedProjects() {
                   </div>
                 </div>
 
-                {/* Demo badge */}
-                {project.isDemo && (
-                  <div className="flex items-center gap-1.5 mb-3 text-xs text-amber-400 font-medium">
-                    <AlertTriangle size={12} />
-                    Demo / Prototype
-                  </div>
-                )}
-
                 <h3 className="text-2xl font-bold text-white mb-3">{project.title}</h3>
                 <p className="text-gray-400 text-sm mb-6 flex-grow">{project.description}</p>
 
@@ -168,7 +191,7 @@ export default function FeaturedProjects() {
                 </div>
 
                 {/* Bottom row: Case Study + Website + GitHub */}
-                <div className="flex flex-wrap items-center gap-4 mt-auto">
+                <div className="flex flex-wrap items-center gap-4 mt-auto pt-4 border-t border-white/5">
                   <button
                     onClick={() => setActiveProject(project)}
                     className="flex items-center text-primary text-sm font-semibold hover:text-secondary transition-colors group/btn"

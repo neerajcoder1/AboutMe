@@ -1,18 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  /* ✅ Permanent Light Theme — always uses light colors */
-  --color-background: #f8fafc;
-  --color-card: #ffffff;
-  --color-primary: #2563eb;
-  --color-secondary: #3b82f6;
-  --color-accent: #60a5fa;
-
-  --color-white: #0f172a;
-  --color-gray-100: #020617;
-  --color-gray-300: #334155;
-  --color-gray-400: #475569;
-  --color-gray-500: #64748b;
+  /* ✅ Permanent Dark Theme */
+  --color-background: #0a0a0f;
+  --color-card: #12121a;
+  --color-primary: #3b82f6;
+  --color-secondary: #60a5fa;
+  --color-accent: #2563eb;
 
   --font-sans: 'Plus Jakarta Sans', sans-serif;
   --font-heading: 'Outfit', sans-serif;
@@ -21,7 +15,7 @@
 @utility glass-panel {
   background-color: color-mix(in srgb, var(--color-card) 80%, transparent);
   backdrop-filter: blur(12px);
-  border: 1px solid color-mix(in srgb, black 10%, transparent);
+  border: 1px solid color-mix(in srgb, white 10%, transparent);
   box-shadow: var(--shadow-xl);
 }
 
@@ -31,31 +25,15 @@ html {
 
 body {
   background-color: var(--color-background);
-  color: #020617;
+  color: #f1f5f9;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
 }
-
-/* Override dark utility classes to use light equivalents */
-.text-white        { color: #0f172a !important; }
-.text-gray-100     { color: #020617 !important; }
-.text-gray-300     { color: #334155 !important; }
-.text-gray-400     { color: #475569 !important; }
-.bg-background     { background-color: #f8fafc !important; }
-.border-white\/10  { border-color: rgba(0,0,0,0.08) !important; }
-.border-white\/5   { border-color: rgba(0,0,0,0.05) !important; }
-.border-white\/20  { border-color: rgba(0,0,0,0.12) !important; }
-.bg-white\/5       { background-color: rgba(0,0,0,0.04) !important; }
-.bg-white\/\[0\.02\] { background-color: rgba(0,0,0,0.02) !important; }
-.hover\:bg-white\/10:hover { background-color: rgba(0,0,0,0.06) !important; }
-.hover\:text-white:hover   { color: #0f172a !important; }
-.bg-background\/90  { background-color: rgba(248,250,252,0.9) !important; }
-.bg-background\/95  { background-color: rgba(248,250,252,0.95) !important; }
-.selection\:text-white::selection { color: #ffffff !important; }
 
 @keyframes meteor {
   0% { transform: rotate(215deg) translateX(0); opacity: 1; }

@@ -7,9 +7,9 @@ function ProjectModal({ project, onClose }) {
   if (!project) return null;
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
-      <div className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-white border border-black/10 rounded-2xl shadow-2xl z-10 flex flex-col">
-        <button onClick={onClose} className="absolute top-4 right-4 p-2 bg-black/5 hover:bg-black/10 rounded-full text-gray-500 hover:text-gray-900 transition-colors z-20">
+      <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={onClose} />
+      <div className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-card border border-white/10 rounded-2xl shadow-2xl z-10 flex flex-col">
+        <button onClick={onClose} className="absolute top-4 right-4 p-2 bg-white/5 hover:bg-white/10 rounded-full text-gray-400 hover:text-white transition-colors z-20">
           <X size={20} />
         </button>
 
@@ -21,12 +21,12 @@ function ProjectModal({ project, onClose }) {
             </span>
           </div>
 
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">{project.title}</h2>
+          <h2 className="text-3xl font-bold text-white mb-4">{project.title}</h2>
 
           {/* ⚠️ Demo Notice */}
           {project.isDemo && (
-            <div className="flex items-start gap-3 mb-6 px-4 py-3 bg-amber-50 border border-amber-200 rounded-xl text-sm text-amber-800">
-              <AlertTriangle size={16} className="mt-0.5 shrink-0 text-amber-500" />
+            <div className="flex items-start gap-3 mb-6 px-4 py-3 bg-amber-500/10 border border-amber-500/20 rounded-xl text-sm text-amber-300">
+              <AlertTriangle size={16} className="mt-0.5 shrink-0 text-amber-400" />
               <span>
                 <strong>Notice:</strong> This is a demo page / prototype. Some features may be limited or incomplete.
               </span>
@@ -36,27 +36,27 @@ function ProjectModal({ project, onClose }) {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 space-y-8">
               <section>
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">Problem</h3>
-                <p className="text-gray-500 leading-relaxed">{project.problem}</p>
+                <h3 className="text-lg font-semibold text-white mb-3">Problem</h3>
+                <p className="text-gray-400 leading-relaxed">{project.problem}</p>
               </section>
 
               <section>
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">Solution</h3>
-                <p className="text-gray-500 leading-relaxed">{project.solution}</p>
+                <h3 className="text-lg font-semibold text-white mb-3">Solution</h3>
+                <p className="text-gray-400 leading-relaxed">{project.solution}</p>
               </section>
 
               <section>
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">My Role</h3>
-                <p className="text-gray-500 leading-relaxed">{project.role}</p>
+                <h3 className="text-lg font-semibold text-white mb-3">My Role</h3>
+                <p className="text-gray-400 leading-relaxed">{project.role}</p>
               </section>
 
               {project.engineering && (
                 <section>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">Engineering Details</h3>
+                  <h3 className="text-lg font-semibold text-white mb-3">Engineering Details</h3>
                   <ul className="space-y-3">
                     {Object.entries(project.engineering).map(([key, value]) => (
-                      <li key={key} className="text-gray-500 text-sm">
-                        <strong className="text-gray-700 capitalize">{key.replace(/([A-Z])/g, ' $1').trim()}:</strong> {value}
+                      <li key={key} className="text-gray-400 text-sm">
+                        <strong className="text-gray-200 capitalize">{key.replace(/([A-Z])/g, ' $1').trim()}:</strong> {value}
                       </li>
                     ))}
                   </ul>
@@ -65,16 +65,16 @@ function ProjectModal({ project, onClose }) {
             </div>
 
             <div className="space-y-8">
-              <section className="p-5 bg-gray-50 border border-black/8 rounded-xl">
-                <h3 className="text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wider">Architecture</h3>
-                <p className="text-sm text-gray-600 font-mono bg-white p-3 rounded border border-black/8">{project.architecture}</p>
+              <section className="p-6 bg-white/5 border border-white/10 rounded-xl">
+                <h3 className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">Architecture</h3>
+                <p className="text-sm text-gray-400 font-mono bg-background p-3 rounded border border-white/5">{project.architecture}</p>
               </section>
 
               <section>
-                <h3 className="text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wider">Tech Stack</h3>
+                <h3 className="text-sm font-semibold text-white mb-3 uppercase tracking-wider">Tech Stack</h3>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map(tech => (
-                    <span key={tech} className="px-2.5 py-1 bg-black/5 border border-black/8 rounded text-xs text-gray-600">
+                    <span key={tech} className="px-2.5 py-1 bg-white/5 border border-white/10 rounded text-xs text-gray-300">
                       {tech}
                     </span>
                   ))}
@@ -99,7 +99,7 @@ function ProjectModal({ project, onClose }) {
                     href={project.github}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center justify-center gap-2 w-full py-3 bg-gray-900 hover:bg-gray-700 text-white rounded-lg transition-colors text-sm font-medium"
+                    className="flex items-center justify-center gap-2 w-full py-3 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-colors text-sm font-medium"
                   >
                     <FaGithub size={16} />
                     View on GitHub
@@ -122,12 +122,12 @@ export default function FeaturedProjects() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="mb-16">
           <h3 className="text-sm font-bold tracking-widest text-primary uppercase mb-2">Portfolio</h3>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Featured Projects</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white">Featured Projects</h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 relative z-10">
           {projects.filter(p => p.featured).map((project) => (
-            <div key={project.id} className="group glass-panel rounded-2xl overflow-hidden flex flex-col h-full hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10">
+            <div key={project.id} className="group glass-panel rounded-2xl overflow-hidden flex flex-col h-full hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20">
               <div className="p-8 flex flex-col flex-grow">
 
                 {/* Top row: category + icon links */}
@@ -137,12 +137,12 @@ export default function FeaturedProjects() {
                   </span>
                   <div className="flex gap-3">
                     {project.github && (
-                      <a href={project.github} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-gray-900 transition-colors" title="View on GitHub">
+                      <a href={project.github} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors" title="View on GitHub">
                         <FaGithub size={20} />
                       </a>
                     )}
                     {project.link && (
-                      <a href={project.link} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-gray-900 transition-colors" title="View Website">
+                      <a href={project.link} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors" title="View Website">
                         <ExternalLink size={20} />
                       </a>
                     )}
@@ -151,37 +151,37 @@ export default function FeaturedProjects() {
 
                 {/* Demo badge */}
                 {project.isDemo && (
-                  <div className="flex items-center gap-1.5 mb-3 text-xs text-amber-600 font-medium">
+                  <div className="flex items-center gap-1.5 mb-3 text-xs text-amber-400 font-medium">
                     <AlertTriangle size={12} />
                     Demo / Prototype
                   </div>
                 )}
 
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">{project.title}</h3>
-                <p className="text-gray-500 text-sm mb-6 flex-grow">{project.description}</p>
+                <h3 className="text-2xl font-bold text-white mb-3">{project.title}</h3>
+                <p className="text-gray-400 text-sm mb-6 flex-grow">{project.description}</p>
 
                 <div className="flex flex-wrap gap-2 mb-8">
                   {project.technologies.slice(0, 4).map(tech => (
-                    <span key={tech} className="text-xs text-gray-400 font-mono">#{tech}</span>
+                    <span key={tech} className="text-xs text-gray-500 font-mono">#{tech}</span>
                   ))}
-                  {project.technologies.length > 4 && <span className="text-xs text-gray-400 font-mono">...</span>}
+                  {project.technologies.length > 4 && <span className="text-xs text-gray-500 font-mono">...</span>}
                 </div>
 
                 {/* Bottom row: Case Study + Website + GitHub */}
                 <div className="flex flex-wrap items-center gap-4 mt-auto">
                   <button
                     onClick={() => setActiveProject(project)}
-                    className="flex items-center text-primary text-sm font-semibold hover:text-accent transition-colors group/btn"
+                    className="flex items-center text-primary text-sm font-semibold hover:text-secondary transition-colors group/btn"
                   >
                     Case Study <ArrowRight size={16} className="ml-2 group-hover/btn:translate-x-1 transition-transform" />
                   </button>
                   {project.link && (
-                    <a href={project.link} target="_blank" rel="noreferrer" className="flex items-center text-gray-500 hover:text-gray-900 text-sm font-medium transition-colors">
+                    <a href={project.link} target="_blank" rel="noreferrer" className="flex items-center text-gray-400 hover:text-white text-sm font-medium transition-colors">
                       <ExternalLink size={14} className="mr-1.5" /> Website
                     </a>
                   )}
                   {project.github && (
-                    <a href={project.github} target="_blank" rel="noreferrer" className="flex items-center text-gray-500 hover:text-gray-900 text-sm font-medium transition-colors">
+                    <a href={project.github} target="_blank" rel="noreferrer" className="flex items-center text-gray-400 hover:text-white text-sm font-medium transition-colors">
                       <FaGithub size={14} className="mr-1.5" /> GitHub
                     </a>
                   )}

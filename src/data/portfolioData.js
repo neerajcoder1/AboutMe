@@ -57,7 +57,7 @@ export const projects = [
     id: "sarvam-swarm",
     title: "Sarvam Swarm",
     category: "Multi-Agent AI System",
-    thumbnail: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800",
+    thumbnail: "/sarvam-swarm-preview.png",
     technologies: ["Python", "FastAPI", "Swarm Agents", "AI", "REST APIs"],
     description: "A multi-agent AI swarm system built for intelligent task orchestration and automation.",
     problem: "Complex tasks require coordination between multiple AI agents with different specializations.",

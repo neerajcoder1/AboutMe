@@ -141,7 +141,7 @@ export const projects = [
     id: "secureshop-cybersecurity-lab",
     title: "SecureShop Cybersecurity Lab",
     category: "Cybersecurity / Pentesting",
-    thumbnail: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800",
+    thumbnail: "/secureshop-preview.png",
     technologies: ["Python", "Node.js", "OWASP", "Security Testing", "Docker"],
     description: "A vulnerable e-commerce platform designed for practicing penetration testing and identifying security flaws.",
     problem: "Security professionals need safe, legal environments to practice identifying and exploiting vulnerabilities.",

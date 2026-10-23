@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ExternalLink, ArrowRight, X, AlertTriangle, Github } from 'lucide-react';
+import { ExternalLink, ArrowRight, X, AlertTriangle } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
 import { projects } from '../data/portfolioData';
 

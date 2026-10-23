@@ -78,7 +78,7 @@ export const projects = [
     id: "netrayan",
     title: "Netrayan",
     category: "AI Vision & Analytics",
-    thumbnail: "https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&q=80&w=800",
+    thumbnail: "/netrayan-preview.png",
     technologies: ["Python", "YOLOv8", "MediaPipe", "OpenCV", "FastAPI"],
     description: "An AI-powered vision and analytics platform for real-time object detection and tracking.",
     problem: "Real-time visual data processing and intelligent object recognition remain challenging without specialized infrastructure.",

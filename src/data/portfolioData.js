@@ -162,7 +162,7 @@ export const projects = [
     id: "phishshield",
     title: "PhishShield Cybersecurity",
     category: "Security Awareness Platform",
-    thumbnail: "https://images.unsplash.com/photo-1563206767-5b18f218e8de?auto=format&fit=crop&q=80&w=800",
+    thumbnail: "/phishshield-preview.png",
     technologies: ["Python", "FastAPI", "React", "AI Detection", "Security"],
     description: "AI-Assisted Phishing Detection & Cybersecurity Awareness Platform.",
     problem: "Users are frequently targeted by sophisticated phishing campaigns via email and SMS.",
